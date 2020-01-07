@@ -49,6 +49,27 @@ def profile(request, username):
     }
     return render(request, 'insta/profile.html', params)
 
+@login_required(login_url='login')
+def index(request):
+    images = Post.objects.all()
+    users = User.objects.exclude(id=request.user.id)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user.profile
+            post.save()
+            return HttpResponseRedirect(request.path_info)
+        
+    else:
+        form = PostForm()
+        params = {
+            'images': images,
+            'form':form,
+            'users':users,
+        }
+    return render(request, 'insta/index.html', params)
+
 
 @login_required(login_url='login')
 def user_profile(request, username):
@@ -191,7 +212,7 @@ def follow(request, to_follow):
         user_profile3 = Profile.objects.get(pk=to_follow)
         follow_s = Follow(follower=request.user.profile, followed=user_profile3)
         follow_s.save()
-        return redirect('user_profile', user_profile3.user.username)  
+        return redirect('user_profile', user_profile3.user.username)      
   
 
 

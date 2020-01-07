@@ -37,6 +37,7 @@ class Profile(models.Model):
         return cls.objects.filter(user__username__icontains=name).all()
 
 
+
 class Post(models.Model):
     image = models.ImageField(upload_to='posts/')
     name = models.CharField(max_length=250, blank=True)

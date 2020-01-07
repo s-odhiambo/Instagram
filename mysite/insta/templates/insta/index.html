@@ -45,13 +45,13 @@
                 <div class="card-body mb-4">
                     <a href="{% url 'comment' image.id %}"><div class="card-text"
                          style="background-image:url({{ image.image.url }});;background-size: contain;position: sticky">
-                        <img src="{{image.image.url}}" style="" class="card-img" width="100%"/>
+                        <img src="{{image.image.url}}" class="card-img" width="100%"/>
                     </div></a>
                 </div>
                 <div class="iconic ml-2">
                     <button class="btn btn-sm" type="submit" name="image_id" value="{{image.id}}">
                         <a href="{% url 'comment' image.id %}"><i class="far fa-heart hearticon mx-auto"
-                                                                  aria-hidden="true" style=""></i></a>
+                                                                  aria-hidden="true"></i></a>
                     </button>
                     <button class="btn btn-sm" type="submit"><a href="{% url 'comment' image.id %}"><i
                             class="far fa-comment hearticon mx-auto" aria-hidden="true"></i>
@@ -76,12 +76,12 @@
         <div class="col-md-4 mt-4 userinfo">
             <div class="row">
                 <div class="col-md-3 ml-2">
-                    <img class="rounded-circle user-img" src="{{ user.profile.profile_picture.url }}">
+                    <img class="rounded-circle user-img" src="https://i.pinimg.com/originals/29/3b/84/293b84f3561f0f895b54554ff195ea1a.png" width="50">
                 </div>
                 <div class="col-md-6 mt-4 user-detail">
                     <span class=" text-secondary"><a
                             href="{% url 'user_profile' user.username %}">{{ user.username }}</a></span> <br>
-                    <span class=" inname">{{ user.profile.name }}</span>
+                    <span class="inname">{{ user.profile.name }}</span>
                 </div>
             </div>
             <div class="row">
