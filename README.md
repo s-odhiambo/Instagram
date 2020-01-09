@@ -16,7 +16,7 @@
 
  Navigate to the project directory
 
- cd instaKlone
+ cd Instagram
 2. Create a virtual environment
  Install Virtualenv
 
@@ -31,7 +31,7 @@
  You'll need to create a new postgress database, Type the following command to access postgress
 
  $ psql
- Then run the following query to create a new database named instaklone
+ Then run the following query to create a new database named Instagram
 
 # create database Instagram
 4.Install dependencies
